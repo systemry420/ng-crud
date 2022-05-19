@@ -1,0 +1,20 @@
+<div>
+    <div class="grid grid-cols-2 p-4 my-2">
+        <h2 class="text-2xl font-bold">Employee Listing</h2>
+        <button class="bg-emerald-400 rounded-lg text-white">Add Employee</button>
+    </div>
+    <div class="p-4 my-2">
+        <div *ngFor="let employee of employees" class="shadow-md my-2 p-4 flex justify-between bg-slate-50">
+            <div class="info">
+                <p>{{employee.name}}</p>
+                <p class="text-slate-600">{{employee.nick_name}}</p>
+                <p class="font-bold mt-2">{{employee.company}}</p>
+            </div>
+    
+            <div class="actions flex items-center">
+                <button class="bg-slate-300 m-1 rounded-full w-16">Add</button>
+                <button class="bg-slate-300 m-1 rounded-full w-16">Delete</button>
+            </div>
+        </div>
+    </div>
+</div>
