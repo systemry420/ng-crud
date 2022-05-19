@@ -1,7 +1,7 @@
 <div>
     <div class="grid grid-cols-2 p-4 my-2">
         <h2 class="text-2xl font-bold">Employee Listing</h2>
-        <button class="bg-emerald-400 rounded-lg text-white">Add Employee</button>
+        <button routerLink='/edit' class="bg-emerald-400 rounded-lg text-white">Add Employee</button>
     </div>
     <div *ngIf="employees$ " class="p-4 my-2">
         <div *ngFor="let employee of employees$" class="shadow-md my-2 p-4 flex justify-between bg-slate-50">
