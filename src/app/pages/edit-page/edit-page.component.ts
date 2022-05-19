@@ -1,5 +1,6 @@
 import { DataService } from './../../services/data.service';
 import { Component, OnInit } from '@angular/core';
+import { Employee } from 'src/app/models/Employee';
 
 @Component({
   selector: 'app-edit-page',
@@ -8,16 +9,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EditPageComponent implements OnInit {
 
+  employee = new Employee('', '', '')
+
   constructor(
     private service: DataService
   ) { }
 
   ngOnInit(): void {
-    this.service.getData()
   }
 
   addEmployee() {
-    this.service.addEmployee()
+    this.service.addEmployee(this.employee)
   }
 
 }

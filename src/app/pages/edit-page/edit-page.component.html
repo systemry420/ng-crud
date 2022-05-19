@@ -1,15 +1,15 @@
-<form>
+<form #f="ngForm">
     <div class="p-4 my-2 flex flex-col md:w-80">
         <label for="name" class="uppercase mb-2 font-bold">Name of employee </label>
-        <input class=" border rounded-sm border-gray-200 shadow p-2" type="text" placeholder="Enter name">
+        <input name="name" [(ngModel)]="employee.name" class=" border rounded-sm border-gray-200 shadow p-2" type="text" placeholder="Enter name">
     </div>
     <div class="p-4 my-2 flex flex-col md:w-80">
         <label for="name" class="uppercase mb-2 font-bold">Location </label>
-        <input class=" border rounded-sm border-gray-200 shadow p-2" type="text" placeholder="Enter location">
+        <input name="company" [(ngModel)]="employee.company" class=" border rounded-sm border-gray-200 shadow p-2" type="text" placeholder="Enter location">
     </div>
     <div class="p-4 my-2 flex flex-col md:w-80">
         <label for="name" class="uppercase mb-2 font-bold">Designation </label>
-        <input class=" border rounded-sm border-gray-200 shadow p-2" type="text" placeholder="Enter designation">
+        <input name="role" [(ngModel)]="employee.role" class=" border rounded-sm border-gray-200 shadow p-2" type="text" placeholder="Enter designation">
     </div>
     <div class="p-4 my-2 flex flex-col md:w-80">
         <button (click)="addEmployee()" class="my-2 p-1 bg-emerald-400 shadow rounded-lg text-white">Add Employee</button>

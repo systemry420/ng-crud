@@ -1,3 +1,5 @@
+import { Observable } from 'rxjs';
+import { Employee } from './../models/Employee';
 import { Injectable } from '@angular/core';
 import { AngularFireDatabase } from '@angular/fire/compat/database';
 
@@ -10,24 +12,20 @@ export class DataService {
     private db: AngularFireDatabase
   ) { }
 
-  public addEmployee(): void {
-    this.db.database.ref('users').set({
-      name: 'abc'
-    }).then(() => {
-      alert('added')
-    }).catch((err) => {
-      console.log(err);
-      
+  public addEmployee(data: Employee): void {
+    const id = this.db.createPushId()
+    this.db.list('users').push({
+      id,
+      name: data.name,
+      company: data.company,
+      role: data.role,
     })
   }
 
   /**
    * getData
    */
-  public getData() {
-    this.db.list('users').valueChanges()
-      .subscribe(res => {
-        console.log(res);
-      })
+  public getData(): Observable<any[]> {
+    return this.db.list('users').valueChanges()
   }
 }

@@ -1,4 +1,7 @@
+import { DataService } from './../../services/data.service';
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+import { Employee } from 'src/app/models/Employee';
 
 @Component({
   selector: 'app-home-page',
@@ -7,13 +10,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomePageComponent implements OnInit {
 
-  employees = [
-    { name: 'Sammy', nick_name: 'Shark', company: 'Digital Ocean' },
-    { name: 'Sammy', nick_name: 'Shark', company: 'Digital Ocean' }
-  ]
-  constructor() { }
+  employees$: any;
+
+  constructor(
+    private service: DataService
+  ) {
+  }
 
   ngOnInit(): void {
+    this.service.getData().subscribe(r => {
+      this.employees$ = r
+    })
   }
 
 }

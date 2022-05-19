@@ -9,6 +9,14 @@ import { AppComponent } from './app.component';
 import { HomePageComponent } from './pages/home-page/home-page.component';
 import { EditPageComponent } from './pages/edit-page/edit-page.component';
 import { AngularFireModule } from '@angular/fire/compat';
+import { FormsModule } from '@angular/forms';
+import { RouterModule, Routes } from '@angular/router';
+
+const routes: Routes = [
+  {path: 'edit', component: EditPageComponent},
+  {path: 'home', component: HomePageComponent},
+  {path: '', redirectTo: 'home', pathMatch: 'full'},
+]
 
 @NgModule({
   declarations: [
@@ -18,6 +26,8 @@ import { AngularFireModule } from '@angular/fire/compat';
   ],
   imports: [
     BrowserModule,
+    FormsModule,
+    RouterModule.forRoot(routes),
     AngularFireModule.initializeApp({
       apiKey: "AIzaSyA0izDkdEjU8xqXZwJQad5MHtZzCzyAgcU",
       authDomain: "drr305-82150.firebaseapp.com",
